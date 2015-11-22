@@ -27,15 +27,25 @@
 				background: #ecf0f1;
 			}
 
+			#container {
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				margin-top: -250px;
+				margin-left: -444px;
+			}
+
+			#container .column {
+				display: inline-block;
+				float: left;
+				padding: 0 10px;
+			}
+
 			#avatar {
-				width: 300px;
-				height: 300px;
-                position: fixed;
-                top: 35%;
-                left: 50%;
-                margin-left: -150px;
-                margin-top: -150px;
+				height: 0;
+				width: 200px;
                 border-radius: 3px;
+                padding-top: 10px;
 				background: #ecf0f1;
 			}
 
@@ -46,12 +56,7 @@
 			}
 
 			#content {
-				width: 100%;
-				position: fixed;
-				top: 40%;
-				left: 0;
-				margin-top: 150px;
-				text-align: center;
+				
 			}
 
 			a {
@@ -68,26 +73,79 @@
 				margin-bottom: 15px;
 			}
 
+			.gray {
+				color: #999;
+			}
+
 		</style>
 
 	</head>
 
 	<body>
 
-		<div id="avatar">
+		<noscript>
 
-			<img src="https://en.gravatar.com/userimage/23894961/77e4b22ec29f65e13ea7b187788e9f63.png?size=300">
+			<style type="text/css">
+
+				#avatar {
+					height: 200px;
+				}
+
+			</style>
+
+		</noscript>
+
+		<div id="container">
+
+			<div class="column">
+
+				<div id="avatar">
+
+					<img src="https://en.gravatar.com/userimage/23894961/77e4b22ec29f65e13ea7b187788e9f63.png?size=300">
+
+				</div>
+
+			</div>
+
+			<div class="column">
+
+				<div id="content">
+
+					<h2>Hi, I'm Nick.</h2>
+
+					<br />
+
+					<p>I'm a senior developer at <a href="https://hypixel.net">Hypixel</a>. I develop high availability<br />infrastructures that scale to deliver content to millions of people.</p>
+					<p>I have a number of public projects available on my <a href="https://github.com/Cryptkeeper">Github</a>;<br />however most of my work is private.</p>
+					<p>twitter: <a href="https://twitter.com/ItsCryptkeeper">@ItsCryptkeeper</a><br />email: <a href="mailto:hello@cryptkpr.me">hello@cryptkpr.me</a></p>
+					<p class="gray">languages: Java, Ruby and (Node)JS</p>
+
+				</div>
+
+			</div>
 
 		</div>
 
-		<div id="content">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 
-			<p>Hi; I'm Cryptkeeper.</p>
-			<p>I'm a senior developer at <a href="https://hypixel.net">Hypixel</a>. I develop high availability<br />infrastructures that scale to deliver content to millions of people.</p>
-			<p>I have a number of public projects available on my <a href="https://github.com/Cryptkeeper">Github</a>.</p>
-			<p>Tweet me <a href="https://twitter.com/ItsCryptkeeper">@ItsCryptkeeper</a>; or <a href="mailto:hello@cryptkpr.me">send an email</a>.</p>
+		<script type="text/javascript">
 
-		</div>
+			// Bad animation is bad.
+			$(document).ready(function() {
+				var avatar = $("#avatar");
+
+				avatar.animate({height: 250}, 500);
+
+				setTimeout(function() {
+					avatar.animate({height: 150}, 300);
+
+					setTimeout(function() {
+						avatar.animate({height: 200}, 100);
+					}, 300);
+				}, 500);
+			});
+
+		</script>
 	
 	</body>
 
